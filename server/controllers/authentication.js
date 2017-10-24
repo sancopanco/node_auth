@@ -10,6 +10,8 @@ function tokenForUser(user){
 exports.signin = function(req, res, next){
   // User has already had their email and password auth'd
   // Give them a token
+  console.log(req.user)
+  
   res.send({ token: tokenForUser(req.user) })
 }
 

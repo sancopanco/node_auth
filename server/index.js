@@ -7,6 +7,7 @@ const app = express()
 
 const router = require('./router.js')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 //DB setup
 mongoose.connect('mongodb://localhost:auth/auth')
@@ -14,8 +15,10 @@ mongoose.connect('mongodb://localhost:auth/auth')
 
 //App setup
 
-//logging
+// Logging
+// Middlewares
 app.use(morgan('combined'))
+app.use(cors())
 app.use(bodyParser.json({type: '*/*'}))
 router(app)
 
